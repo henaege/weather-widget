@@ -1,0 +1,8 @@
+#weather-canvas {
+    height:15vh;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 30px;
+}

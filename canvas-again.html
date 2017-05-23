@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <canvas id="canvas" height="500px" width="500px">
+
+        </canvas>
+        <script type="text/javascript">
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext('2d');
+
+            // // make the pen red
+            // context.strokeStyle = '#FF0000';
+            // // make the line 10px wide
+            // context.lineWidth = 10;
+            // context.lineTo(200, 100);
+            // context.lineTo(200, 200);
+            // context.lineTo(300, 100);
+            // context.lineTo(300, 150);
+            // context.lineTo(200, 200);
+            // context.stroke();
+            // context.closePath();
+            // context.arc(150, 150, 75, 0*Math.PI,2*Math.PI);
+            // context.fillStyle = '#0000FF';
+            // context.fill();
+            function Ball(x, y, radius, r, g, b){
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.r = r;
+                this.g = g;
+                this.b = b;
+                this.startArc = 0;
+                this.endArc = Math.PI * 2;
+                this.xDirection = 2;
+                this.yDirection = 2;
+                }
+
+                Ball.prototype.updateBall = function() {
+                    if (this.x >= 500 - this.radius) {
+                        this.xDirection = -2;
+                    } else if (this.x <= this.radius) {
+                        this.xDirection = 2;
+                    }
+                    if (this.y >= 500 - this.radius) {
+                        this.yDirection = -2;
+                    } else if (this.y <= this.radius) {
+                        this.yDirection = 2;
+                    }
+                    this.x += this.xDirection;
+                    this.y += this.yDirection;
+
+                }
+
+                Ball.prototype.draw = function() {
+                    context.fillStyle = '#' + this.r + this.g + this.b;
+                    context.beginPath();
+                    context.arc(this.x, this.y, this.radius, this.startArc, this.endArc)
+                    context.fill();
+                }
+
+                function run() {
+                    context.clearRect(0,0,500,500)
+                    for (let i = 0; i < balls.length; i++) {
+                        balls[i].updateBall();
+                        balls[i].draw();
+                    }
+                    requestAnimationFrame(run);
+                }
+                let balls = [];
+                balls.push(new Ball(250, 150, 75, 20, 40, 60));
+                balls.push(new Ball(50, 300, 75, 60, 20, 40));
+                run();
+
+            
+
+        </script>
+    </body>
+</html>
