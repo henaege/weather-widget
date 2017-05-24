@@ -15,12 +15,15 @@ $('#weather-form').submit((event)=> {
         console.log(weatherData)
         let currTemp = weatherData.main.temp;
         let icon = weatherData.weather[0].icon + '.png';
+        console.log(icon);
         let name = weatherData.name;
         let conditions = weatherData.weather[0].description;
         
         let newHTML = '<div>The temp in ' + name + ' is currently ' + currTemp + '&deg;</div>'
-        let conditionsHTML = 'Current Conditions: ' + icon;
         let iconHTML = '<img src="http://openweathermap.org/img/w/' + icon+'">'
+        let conditionsHTML = 'Current Conditions: ' + iconHTML;
+        
+        console.log(iconHTML);
         $('#temp-info').html(newHTML);
 
         
@@ -28,8 +31,8 @@ $('#weather-form').submit((event)=> {
         animateCircle(0,currentPercent);
         animateCircle(0, currTemp);
         
-        $('#conditions').html(conditionsHTML, iconHTML);
-        // $('#icon').html(iconHTML);
+        $('#conditions').html(conditionsHTML);
+        
     })
 
     $.getJSON(forecastUrl, (forecastData)=> {
