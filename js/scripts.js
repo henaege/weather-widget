@@ -20,7 +20,7 @@ $('#weather-form').submit((event)=> {
         
         let newHTML = '<div>The temp in ' + name + ' is currently ' + currTemp + '&deg;</div>'
         let conditionsHTML = 'Current Conditions: ' + icon;
-        let iconHTML = '<img src="http://openweathermap.org/img/w/'+ icon + '">'
+        let iconHTML = '<img src="http://openweathermap.org/img/w/' + icon+'">'
         $('#temp-info').html(newHTML);
 
         
@@ -34,7 +34,7 @@ $('#weather-form').submit((event)=> {
 
     $.getJSON(forecastUrl, (forecastData)=> {
         console.log(forecastData)
-        let forecastIconsList = forecastData.list[0].weather
+        // let forecastIconsList = forecastData.list.weather.icon
         var items = $();
         var i = 3;
         for (let i = 3; i < 36; i+=8){
@@ -46,6 +46,7 @@ $('#weather-form').submit((event)=> {
             items = items.add('<div class="item2 forecast-item">'+iconHTML+ tempLo + ' / ' + tempHi+ '</div>')
         }
         $('.forecast-box').append(items);
+        
 
     })
 

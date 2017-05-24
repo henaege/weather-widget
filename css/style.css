@@ -51,7 +51,9 @@ button {
     justify-content: space-between;
 }
 
-#forecast-1, #forecast-2, #forecast-3, #forecast-4, #forecast-5 {
+.forecast-item {
+    display: flex;
+    flex-direction: column;
     border-radius: 50%;
     background-color: rgba(100,100,100,0.7);
     width: 100px;
