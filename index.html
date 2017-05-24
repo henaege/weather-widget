@@ -7,20 +7,36 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/config.js"></script>
         <script src="js/scripts.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         
     </head>
     <body>
-        <form id="weather-form">
-            <label>Please enter a zip code to search</label>
-            <input type="text" id="zip-code" placeholder="30341"/>
-            <button type="submit">Search</button>
-        </form>
         <div class="container">
-            <canvas id="weather-canvas">
-                <!--put the weather widget arc in here-->
+            
+            <form id="weather-form" class="item">
+                <label class="item2">Please enter a zip code to search</label>
+                <input class="item2" type="text" id="zip-code" placeholder="zip code"/>
+                <button class="item2" type="submit">Search</button>
+            </form>
+            <div id="temp-info" class="item">
+                <!--Information received back from API will go here-->
+            </div>
+            <div class="item">
+                <canvas id="weather-canvas" width="300" height="175">
+                    <!--put the weather widget arc in here-->
 
-            </canvas>
+                </canvas>
+            </div>
+            <div id="conditions" class="item"></div>
+            <div class="item" id="icon"></div>
+            <div id="forecast">
+                <h1>The next 5 days:</h1>
+                <div class="forecast-box">
+                    
+                    
+                </div>
+            </div>
         </div>
     </body>
 </html>
